@@ -1,0 +1,22 @@
+2013-03-28 23:00:46+0000 [scrapy] INFO: Scrapy 0.16.4 started (bot: scraper)
+2013-03-28 23:01:18+0000 [sky] INFO: Spider opened
+2013-03-28 23:01:18+0000 [sky] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2013-03-28 23:01:24+0000 [sky] INFO: Closing spider (finished)
+2013-03-28 23:01:24+0000 [sky] INFO: Dumping Scrapy stats:
+	{'downloader/request_bytes': 1038,
+	 'downloader/request_count': 2,
+	 'downloader/request_method_count/GET': 2,
+	 'downloader/response_bytes': 20788,
+	 'downloader/response_count': 2,
+	 'downloader/response_status_count/200': 1,
+	 'downloader/response_status_count/301': 1,
+	 'finish_reason': 'finished',
+	 'finish_time': datetime.datetime(2013, 3, 28, 23, 1, 24, 95763),
+	 'log_count/INFO': 4,
+	 'response_received_count': 1,
+	 'scheduler/dequeued': 2,
+	 'scheduler/dequeued/memory': 2,
+	 'scheduler/enqueued': 2,
+	 'scheduler/enqueued/memory': 2,
+	 'start_time': datetime.datetime(2013, 3, 28, 23, 1, 18, 796464)}
+2013-03-28 23:01:24+0000 [sky] INFO: Spider closed (finished)

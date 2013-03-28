@@ -15,7 +15,7 @@ class SkySpider(BaseSpider):
     allowed_domains = ["skyscanner.net"]
     default = "http://www.skyscanner.net/flights/bts/"
     start_urls = ["http://www.skyscanner.net/flights/"]
-    monthly = True
+    monthly = False
 
     def __init__(self, **kwargs):
         BaseSpider.__init__(self)
@@ -37,9 +37,9 @@ class SkySpider(BaseSpider):
                         self.start_urls[0] += ('/blah.html?oym=' + dat +
                                                '&charttype=1')
                     else:
-                        self.this_month()
+                        self.use_today()
                 else:
-                    self.this_month()
+                    self.use_today()
                 if self.monthly and 'rtn' in kwargs:
                     self.rtn = kwargs['rtn']
                     self.start_urls[0] += '&rtn=' + self.rtn
@@ -49,10 +49,11 @@ class SkySpider(BaseSpider):
 
         self.driver.get(url)
 
-    def this_month(self):
-        this_month = date.today().isoformat().split('-')[1]
-        self.start_urls[0] += ('/blah.html?oym=' + this_month + '&charttype=1')
-        self.monthly = True
+    def use_today(self):
+        today = date.today().isoformat().split('-')
+        self.start_urls[0] += ('/blah.html?oym=' + today[0][-2:] +
+                               today[1] + today[2] + '&charttype=1')
+        self.monthly = False
 
     def __del__(self):
         self.driver.close()
@@ -78,7 +79,7 @@ class SkySpider(BaseSpider):
 
     def parse(self, response):
         #Wait for javscript to load in Selenium
-        time.sleep(2.5)
+        time.sleep(2)
 
         items = []
 
