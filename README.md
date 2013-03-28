@@ -18,6 +18,7 @@ which have to be preceded by `-a`. If you don't supply any arguments flights fro
 - rtn - int flag, could be 0 or 1, specifies whether you scrape one-way or return journeys (default: 0)
 For example to find return flights from Bratislava to Edinburgh in September use:
 `$ scrapy crawl sky -a from=BTS -a to=EDI -a date=1309 -a rtn=0`.
+By default the flights are saved into a JSON file called items.json. This could be changed in Scrapy crawler settings.
 
 #### Going forward
 To further improve the scraper an option for looking for flights from an airport to anywhere in the world could be implemented. This would require going to
